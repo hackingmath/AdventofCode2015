@@ -9,7 +9,7 @@ with open('day07.txt') as f:
     lst = []
     lines = f.readlines()
     for line in lines:
-        lst.append(line.split(" "))
+        lst.append(line)
     #print(lst[:5])
 
 calc = dict()
@@ -17,6 +17,9 @@ vals = dict()
 
 for command in lst:
     (ops,res) = command.split("->")
+    #print("ops,res:",ops,res)
+    if res.strip() in ['lf','lq','kh','ls','kz']:
+        print(command)
     # calc dict is indexed by destination wire
     calc[res.strip()] = ops.strip().split(' ')
 
@@ -27,22 +30,6 @@ def calculate(name):
     except ValueError:
         pass
 
-    # if msg[1] == '->':
-    #     dest = msg[-1][:-1]
-    #     print("dest:",dest)
-    #     if dest not in vals:
-    #         try:
-    #             intval = int(msg[0])
-    #             vals[dest] = intval
-    #         except ValueError:
-    #             print(vals)
-    #             vals[dest] = vals[msg[0]]
-    #     else:
-    #         try:
-    #             intval = int(msg[0])
-    #             vals[dest] += intval
-    #         except ValueError:
-    #             vals[dest] += vals[msg[0]]
     if name not in vals:
         ops = calc[name]
         if len(ops) == 1:
@@ -62,9 +49,12 @@ def calculate(name):
         vals[name] = res
     return vals[name]
 
-print(vals)
+print("Solution a:",calculate('a')) #956 correct!
+
+print("vals:",vals)
+print('calc:',calc['a'])
 print("a",vals['a'])
-print("lx",vals['lx'])
+print("b",vals['b'])
 print("lw",vals['lw'])
 print("lv",vals['lv'])
 print("lc",vals['lc'])

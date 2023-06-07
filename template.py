@@ -13,10 +13,10 @@ with open('day18.txt') as f:
     lines = [x.strip("\n") for x in lines]
     print(lines)
 
-def part1():
+def part1(testing=False):
     pass
 
-def part2():
+def part2(testing=False):
     pass
 
 #print(part1())

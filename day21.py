@@ -113,6 +113,6 @@ def part2():
     print("best total", besttotal)
 
 #print(play([7,0],boss,True))
-#part1()
-part2()
+part1()
+#part2()
 print("Time (secs):",time.time()-starting_time)

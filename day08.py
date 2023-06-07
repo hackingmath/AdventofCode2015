@@ -6,9 +6,10 @@ import time
 starting_time = time.time()
 
 with open('day08.txt') as f:
-    lst = list()
-    lines = f.readlines()
-    lst.append(lines)
+    print("Part 1:",sum(len(_) - 1 - len(eval(_)) for _ in f))
+    # lst = list()
+    # lines = f.readlines()
+    # lst.append(lines)
 
 #print(lines)
 
@@ -38,8 +39,13 @@ def nums(str,testing = False):
 
 test1 = ['""','"abc"','"aaa\"aaa"','"\x27"']
 
-total = 0
-for str in lines:
-    total += nums(str)
-print("total",total)
+def part1(f):
+    print(sum(len(_) - 1 - len(eval(_)) for _ in f))
+
+#part1(test1)
+
+# total = 0
+# for str in test1:
+#     total += nums(str,True)
+# print("total",total) #1485 too high. 
 print("Time (secs):",time.time()-starting_time)
